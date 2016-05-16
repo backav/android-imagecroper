@@ -1,1 +1,1 @@
-include ':imagecroper'
+include ':imagecroper', ':samples'

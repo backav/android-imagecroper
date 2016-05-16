@@ -31,6 +31,8 @@ import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -60,6 +62,8 @@ public class CropImageActivity extends MonitoredActivity {
     private boolean mScale;
     private boolean mScaleUp = true;
     private boolean mCircleCrop = false;
+
+    private Uri mOutputUri;
 
     boolean mSaving; // Whether the "save" button is already clicked.
 
@@ -97,15 +101,19 @@ public class CropImageActivity extends MonitoredActivity {
             mOutputY = extras.getInt("outputY");
             mScale = extras.getBoolean("scale", true);
             mScaleUp = extras.getBoolean("scaleUpIfNeeded", true);
+            mOutputUri = extras.getParcelable(MediaStore.EXTRA_OUTPUT);
         }
 
         if (mBitmap == null) {
             InputStream is = null;
             try {
                 Uri target = intent.getData();
-                ContentResolver cr = getContentResolver();
-                is = cr.openInputStream(target);
-                mBitmap = BitmapFactory.decodeStream(is);
+                if (target!=null){
+                    ContentResolver cr = getContentResolver();
+                    is = cr.openInputStream(target);
+                    mBitmap = BitmapFactory.decodeStream(is);
+                }
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -359,36 +367,33 @@ public class CropImageActivity extends MonitoredActivity {
         mImageView.center(true, true);
         mImageView.HighlightViews.clear();
 
-        //保存图片
-        Bundle extras = new Bundle();
-        String path = "/sdcard/temp.jpg";
-        saveBitmap(croppedImage, path);
-//        extras.putParcelable("data", croppedImage);
 
-        extras.putString("path", path);
-        setResult(RESULT_OK, new Intent().putExtras(
-                extras));
+        Bundle extras = new Bundle();
+        if (mOutputUri != null) {
+            try {
+                saveBitmap(croppedImage, mOutputUri.getPath());
+            } catch (IOException e) {
+                Log.e("imagecroper", "fail to save image", e);
+                setResult(500);
+                finish();
+            }
+        } else {
+            extras.putParcelable("data", croppedImage);
+        }
+
+        setResult(RESULT_OK, new Intent().putExtras(extras));
         finish();
     }
 
-    public static void saveBitmap(Bitmap bm, String path) {
-        //"/sdcard/namecard/", picName
+    public static void saveBitmap(Bitmap bm, String path) throws IOException {
         File f = new File(path);
         if (f.exists()) {
             f.delete();
         }
-        try {
-            FileOutputStream out = new FileOutputStream(f);
-            bm.compress(Bitmap.CompressFormat.PNG, 100, out);
-            out.flush();
-            out.close();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        FileOutputStream out = new FileOutputStream(f);
+        bm.compress(Bitmap.CompressFormat.PNG, 100, out);
+        out.flush();
+        out.close();
     }
 
     private static Bitmap transform(Matrix scaler, Bitmap source,

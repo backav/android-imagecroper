@@ -30,34 +30,33 @@
             android:layout_height="fill_parent"
             android:background="#000000" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/rl_bottombtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:paddingBottom="16dp"
-            android:paddingLeft="9dp"
-            android:paddingRight="9dp">
+            android:orientation="horizontal">
 
-            <Button
+            <li.xiangyang.android.touchable_controls.TouchableTextView
                 android:id="@+id/discard"
-                android:layout_width="144dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/slt_button_big"
-                android:text="取消"
-                android:textColor="@android:color/white" />
+                android:layout_width="157dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_left"
+                android:gravity="center"
+                android:text="取消" />
 
-            <Button
+            <li.xiangyang.android.touchable_controls.TouchableTextView
                 android:id="@+id/save"
-                android:layout_width="144dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/slt_button_big"
-                android:text="确定"
-                android:textColor="#ffffff"
-                android:textSize="16sp" />
-        </RelativeLayout>
+                android:layout_width="157dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button_right"
+                android:gravity="center"
+                android:text="确定" />
+
+
+        </LinearLayout>
     </RelativeLayout>
 
 </FrameLayout>

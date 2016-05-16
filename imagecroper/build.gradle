@@ -4,7 +4,8 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 group = "li.xiangyang.android"
-version = "0.1"
+def pkgName = "android-imagecroper"
+version = "0.3"
 
 def siteUrl = 'https://github.com/backav/android-imagecroper'    // project homepage
 def gitUrl = 'https://github.com/backav/android-imagecroper.git' // project git
@@ -29,6 +30,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'li.xiangyang.android:touchable-controls:0.3'
 }
 
 // 根节点添加
@@ -93,7 +95,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "android-imagecroper"
+        name = pkgName
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
