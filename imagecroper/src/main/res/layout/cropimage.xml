@@ -47,7 +47,7 @@
                 android:background="@drawable/button_left"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="取消" />
+                android:text="@string/cancel" />
 
             <li.xiangyang.android.touchable_controls.TouchableTextView
                 android:id="@+id/save"
@@ -56,7 +56,7 @@
                 android:background="@drawable/button_right"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="确定" />
+                android:text="@string/sure" />
 
 
         </LinearLayout>
