@@ -46,6 +46,7 @@
                 android:layout_height="40dp"
                 android:background="@drawable/button_left"
                 android:gravity="center"
+                android:textColor="@android:color/white"
                 android:text="取消" />
 
             <li.xiangyang.android.touchable_controls.TouchableTextView
@@ -54,6 +55,7 @@
                 android:layout_height="40dp"
                 android:background="@drawable/button_right"
                 android:gravity="center"
+                android:textColor="@android:color/white"
                 android:text="确定" />
 
 
