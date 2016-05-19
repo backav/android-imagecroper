@@ -44,19 +44,19 @@
                 android:id="@+id/discard"
                 android:layout_width="157dp"
                 android:layout_height="40dp"
-                android:background="@drawable/button_left"
+                android:background="@drawable/imagecroper_button_left"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="@string/cancel" />
+                android:text="@string/imagecroper_cancel" />
 
             <li.xiangyang.android.touchable_controls.TouchableTextView
                 android:id="@+id/save"
                 android:layout_width="157dp"
                 android:layout_height="40dp"
-                android:background="@drawable/button_right"
+                android:background="@drawable/imagecroper_button_right"
                 android:gravity="center"
                 android:textColor="@android:color/white"
-                android:text="@string/sure" />
+                android:text="@string/imagecroper_sure" />
 
 
         </LinearLayout>

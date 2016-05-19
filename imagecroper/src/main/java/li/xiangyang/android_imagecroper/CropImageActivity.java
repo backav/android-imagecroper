@@ -38,7 +38,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,7 +77,7 @@ public class CropImageActivity extends MonitoredActivity {
         super.onCreate(icicle);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.cropimage);
+        setContentView(R.layout.imagecroper_activity_main);
 
         mImageView = (CropImageView) findViewById(R.id.image);
 
