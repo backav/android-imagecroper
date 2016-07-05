@@ -43,7 +43,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
 
-import li.xiangyang.android_imagecroper.R;
+import li.xiangyang.android.imagecroper.R;
 
 
 /**
