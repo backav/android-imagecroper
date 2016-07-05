@@ -4,4 +4,4 @@
 
 ### 使用方法
 #### Gradle
->    compile 'li.xiangyang.android:imagecroper:0.5.2@aar'
+>    compile 'li.xiangyang.android:imagecroper:0.5.3@aar'
