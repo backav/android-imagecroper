@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package li.xiangyang.android_imagecroper;
+package li.xiangyang.android.imagecroper;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

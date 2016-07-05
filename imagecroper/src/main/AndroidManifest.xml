@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".CropImageActivity">
+        <activity android:name="li.xiangyang.android.imagecroper.CropImageActivity">
 
         </activity>
     </application>

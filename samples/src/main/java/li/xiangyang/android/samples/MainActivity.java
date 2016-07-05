@@ -1,17 +1,14 @@
 package li.xiangyang.android.samples;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.List;
+import li.xiangyang.android.imagecroper.CropImageActivity;
 
-import li.xiangyang.android_imagecroper.CropImageActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//action is capture
-
                 startActivityForResult(intent, req_takeAvatorPicture);
             }
         });
@@ -44,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 intent.putExtra("data",data.getParcelableExtra("data"));
             }
-            intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
             intent.putExtra("crop", "true");
             intent.putExtra("aspectX", 1);

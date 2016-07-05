@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package li.xiangyang.android_imagecroper;
+package li.xiangyang.android.imagecroper;
 
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -25,6 +25,8 @@ import android.graphics.RectF;
 import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.view.View;
+
+import li.xiangyang.android_imagecroper.R;
 
 
 // This class is used by CropImageActivity to display a highlighted cropping rectangle

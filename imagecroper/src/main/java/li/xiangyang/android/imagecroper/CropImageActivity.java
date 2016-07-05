@@ -16,7 +16,7 @@
 
 // originally from AOSP Camera code. modified to only do cropping and return 
 // data to caller. Removed saving to file, MediaManager, unneeded options, etc.
-package li.xiangyang.android_imagecroper;
+package li.xiangyang.android.imagecroper;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -42,6 +42,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.CountDownLatch;
+
+import li.xiangyang.android_imagecroper.R;
 
 
 /**

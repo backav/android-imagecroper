@@ -26,9 +26,9 @@
 
         <view
             android:id="@+id/image"
-            class="li.xiangyang.android_imagecroper.CropImageView"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            class="li.xiangyang.android.imagecroper.CropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="#000000" />
 
         <LinearLayout
